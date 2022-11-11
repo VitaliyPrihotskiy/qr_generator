@@ -1,0 +1,15 @@
+<div class="container">
+  <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="5"
+            cdkAutosizeMaxRows="5"
+            #input
+            (keyup)="generate(input.value)"></textarea>
+  <qrcode (qrCodeURL)="onChangeURL($event)"
+          [qrdata]="qrCodeStr"
+          [width]="300"
+          [errorCorrectionLevel]="'M'"
+          [allowEmptyString]=true></qrcode>
+  <a mat-raised-button color="primary" [href]="qrCodeDownloadLink" download="qrcode">Download</a>
+</div>
